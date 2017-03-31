@@ -35,7 +35,12 @@ end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
-  def self.find(contact_id
+  def self.find(contact_id)
+    @@contacts.each.do |contact|
+    if contact.id == contact_id
+      return contact
+    end
+  end
 
   end
 
@@ -59,7 +64,7 @@ end
 
   # This method should delete all of the contacts
   def self.delete_all
-  
+
   end
 
   def full_name
