@@ -28,7 +28,7 @@ attr_reader :id
   end
 
   # This method should return all of the existing contacts
-  def self.all(contact_id)
+  def self.all
 
 end
   end
@@ -36,22 +36,30 @@ end
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(contact_id)
-    @@contacts.each.do |contact|
+    @@contacts.each do |contact|
     if contact.id == contact_id
-      return contact
+       return contact
     end
   end
-
-  end
+end
 
   # This method should allow you to specify
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
-
-end
+  def update(brand_new,new_stuff)
+    case brand_new
+    when "first name"
+      @first_name = new_stuff
+    when "last_name"
+    @last_name = new_stuff
+  when "email"
+    @email = new_stuff
+  when "note"
+    @note ==  new_stuff
   end
+end
+
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
