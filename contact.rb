@@ -5,7 +5,7 @@ attr_reader :id
  @@contact = []
  @@next_id = 1000
   # This method should initialize the contact's attributes
-  def initialize(first_name, last_name, email, note = 'N/A')
+  def initialize(first_name, last_name, email, note)
     @first_name = first_name
     @last_name = last_name
     @email = email
@@ -23,12 +23,13 @@ attr_reader :id
 
       @@contacts << new_contact
       new_contact
-      retun new_contact
+      return new_contact
 
   end
 
   # This method should return all of the existing contacts
   def self.all
+    @@contacts
 
 end
   end
@@ -65,13 +66,50 @@ end
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by
+  def self.find_by(attribute, value)
+    if attribute == "first name"
+      @@contacts,each do |contact|
+        if contact.first_name == value
+          return contact
+        end
+      end
+    end
+      def self.find_by(attribute,value)
+        if attribute == "first name"
+          @@contacts.each do |contact|
+            if contact.first_name == value
+              return contact
+            end
+          end
+        end
+        if attribute == "last name"
+          @@contacts.each do |contact|
+            if contact.last_name == value
+              return contact
+            end
+          end
+        end
+        if attribute == "email"
+          @@contacts.each.do |contact|
+          if contact.email == value
+            return contactend
+          end
+        end
+      end
+      if attribute == "note"
+        @@contacts.each.do |contact|
+        if contact.note == value
+          return contact
+        end
+      end
+    end
 
-
+  end
 
 
   # This method should delete all of the contacts
   def self.delete_all
+    @@contacts.clear
 
   end
 
